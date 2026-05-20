@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# hooks/post-merge
+#
+# Automatically re-syncs skills whenever you run `git pull` in this repo.
+# Installed to .git/hooks/post-merge by bootstrap.sh
+#
+# To skip the sync on a specific pull:
+#   SKIP_SYNC=1 git pull
+
+set -euo pipefail
+
+if [ "${SKIP_SYNC:-0}" = "1" ]; then
+    echo "[post-merge] SKIP_SYNC set, skipping skill sync."
+    exit 0
+fi
+
+# Detect the skills dest used during bootstrap (default fallback)
+SKILLS_DEST="${SKILLS_DEST:-${HOME}/agent/skills}"
+
+REPO_DIR="$(git rev-parse --show-toplevel)"
+
+echo "[post-merge] Manifest changed — re-syncing skills to ${SKILLS_DEST}"
+python3 "${REPO_DIR}/sync_skills.py" --dest "${SKILLS_DEST}"

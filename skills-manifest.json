@@ -1,0 +1,12 @@
+{
+  "skills": [
+    {
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "paths": [
+        "scientific-skills/zarr-python/SKILLS.md",
+        "scientific-skills/zarr-python/references/"
+      ],
+      "dest": "zarr"
+    }
+  ]
+}
