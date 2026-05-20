@@ -3,8 +3,7 @@
     {
       "repo": "K-Dense-AI/scientific-agent-skills",
       "paths": [
-        "scientific-skills/zarr-python/SKILLS.md",
-        "scientific-skills/zarr-python/references/"
+        "scientific-skills/zarr-python"
       ],
       "dest": "zarr"
     }
